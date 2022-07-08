@@ -1,5 +1,5 @@
 CXX := g++
-NAME := megaphone
+NAME := book
 CXXFLAGS := -Wall -Werror -Wextra -std=c++98
 SRCS = main.cpp
 
