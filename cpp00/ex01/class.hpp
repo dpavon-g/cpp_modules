@@ -5,11 +5,11 @@ class Person {
 	
 	private:
 		int			id;
-		std::string name;
-		std::string last_name;
-		std::string nickname;
-		long		phone;
-		std::string secret;
+		std::string	name;
+		std::string	last_name;
+		std::string	nickname;
+		std::string	phone;
+		std::string	secret;
 
 		
 	public:
@@ -35,18 +35,18 @@ class Person {
 			return this->nickname;
 		}
 		void set_nickname(std::string nickname) {
-			this->last_name = nickname;
+			this->nickname = nickname;
 		}
 		std::string get_secret() {
 			return this->secret;
 		}
 		void set_secret(std::string secret) {
-			this->last_name = secret;
+			this->secret = secret;
 		}
-		long	get_phone() {
+		std::string get_phone() {
 			return this->phone;
 		}
-		void	set_phone(long phone) {
+		void	set_phone(std::string phone) {
 			this->phone = phone;
 		}
 };
