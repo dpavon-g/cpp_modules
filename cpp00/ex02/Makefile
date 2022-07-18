@@ -1,8 +1,8 @@
 CXX := g++
-NAME := phonebook
+NAME := bank
 CXXFLAGS := -Wall -Werror -Wextra -std=c++98
-SRCS = main.cpp
-
+SRCS = test.cpp\
+	   Account.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # COLORS #
@@ -20,6 +20,9 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 	@echo "\033[0;32mCompiled\033[0m"
+
+echo: 
+	echo $(OBJS)
 
 clean:
 	@rm $(NAME)

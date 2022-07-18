@@ -14,25 +14,45 @@ void	add_contact(Person &persona) {
 	
 	std::cout << "NAME: ";
 	std::getline(std::cin, input);
+	if (std::cin.eof()) {
+		std::cout << "See you soon!!" << std::endl;
+		exit(1);
+	}
 	persona.set_name(input);
 	
 	std::cout << "LAST NAME: ";
 	std::getline(std::cin, input);
+	if (std::cin.eof()) {
+		std::cout << "See you soon!!" << std::endl;
+		exit(1);
+	}
 	persona.set_last_name(input);
 
 	std::cout << "NICKNAME: ";
-	std::getline(std::cin, input);
+	std::getline(std::cin, input);	
+	if (std::cin.eof()) {
+		std::cout << "See you soon!!" << std::endl;
+		exit(1);
+	}
 	persona.set_nickname(input);
 
 	std::cout << "PHONE NUMBER: ";
 	std::getline(std::cin, input);
+	if (std::cin.eof()) {
+		std::cout << "See you soon!!" << std::endl;
+		exit(1);
+	}
 	persona.set_phone(input);
 	
 	std::cout << "DARKEST SECRET: ";
 	std::getline(std::cin, input);
+	if (std::cin.eof()) {
+		std::cout << "See you soon!!" << std::endl;
+		exit(1);
+	}
 	persona.set_secret(input);
 
-	std::cout << "Adding contact" << std::endl;
+	std::cout << "Adding contact...\n" << std::endl;
 }
 
 int	strlen(std::string str) {
@@ -81,12 +101,28 @@ int		check_num_err(std::string str) {
 
 }
 
+void	print_person(Person persona) {
+	
+	std::cout << "------------------------------" << std::endl;
+	std::cout << "NAME: " << persona.get_name() << std::endl;
+	std::cout << "------------------------------" << std::endl;
+	std::cout << "LAST NAME: " << persona.get_last_name() << std::endl;
+	std::cout << "------------------------------" << std::endl;
+	std::cout << "NICKNAME: " << persona.get_nickname() << std::endl;
+	std::cout << "------------------------------" << std::endl;
+	std::cout << "PHONE: " << persona.get_phone() << std::endl;
+	std::cout << "------------------------------" << std::endl;
+	std::cout << "DARKEST SECRET: " << persona.get_secret() << std::endl;
+	std::cout << "------------------------------\n" << std::endl;
+}
+
 void	search_contact(Person persona[8]) {
 	int	i;
 	int	j;
 	std::string input;
 
 	i = 0;
+	std::cout << "--------------------------------------------------------" << std::endl;
 	while (i < 8) {
 		std::cout << "|         " << persona[i].get_id() << "|";
 		j = 0;
@@ -97,18 +133,20 @@ void	search_contact(Person persona[8]) {
 		std::cout << "\n";
 		i++;
 	}
+	std::cout << "--------------------------------------------------------" << std::endl;
 
-
-	std::cout << "Imput a user ID: ";
+	std::cout << "\nImput a user ID: ";
 	std::getline (std::cin, input);
-	
+	if (std::cin.eof()) {
+		std::cout << "See you soon!!" << std::endl;
+		exit(1);
+	}
 	while (check_num_err(input)) {
 		std::cout << "Invalid user ID, repeat: ";
 		std::getline (std::cin, input);
 	}
-
-
-	std::cout << "Searching contact" << std::endl;
+	std::cout << "Searching contact...\n" << std::endl;
+	print_person(persona[(input[0] - 48) - 1]);
 }
 
 int	main() {
